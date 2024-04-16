@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.snykta</groupId>
+    <artifactId>forge-fast-boot</artifactId>
+    <version>1.0.0</version>
+
+
+    <packaging>pom</packaging>
+
+    <name>forge-fast-boot</name>
+    <description>forge-fast-boot 可快速开始的单体服务框架</description>
+
+    <!--模块-->
+    <modules>
+        <module>component-module</module>
+        <module>service-module</module>
+    </modules>
+
+
+
+    <!--版本属性-->
+    <properties>
+        <forge-fast-boot.version>1.0.0</forge-fast-boot.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring-boot.version>2.7.13</spring-boot.version>
+        <spring-cloud-loadbalancer.version>3.1.7</spring-cloud-loadbalancer.version>
+        <spring-cloud-openfeign.version>3.1.8</spring-cloud-openfeign.version>
+        <hutool.version>5.8.15</hutool.version>
+        <mybatis-plus.version>3.5.3</mybatis-plus.version>
+        <spring-druid.version>1.2.16</spring-druid.version>
+        <ok-http3.version>4.9.1</ok-http3.version>
+        <knife4j-api.version>4.3.0</knife4j-api.version>
+        <apache.velocity.version>1.7</apache.velocity.version>
+        <sa.token.version>1.36.0</sa.token.version>
+        <commons-pool2.version>2.11.1</commons-pool2.version>
+    </properties>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <!--自定义组件：web核心组件-->
+            <dependency>
+                <groupId>com.snykta</groupId>
+                <artifactId>component-basic-web</artifactId>
+                <version>${forge-fast-boot.version}</version>
+            </dependency>
+
+            <!--自定义组件：redis核心组件-->
+            <dependency>
+                <groupId>com.snykta</groupId>
+                <artifactId>component-redis</artifactId>
+                <version>${forge-fast-boot.version}</version>
+            </dependency>
+
+            <!--自定义组件：工具类、自定义常量、字典值等基础类组件-->
+            <dependency>
+                <groupId>com.snykta</groupId>
+                <artifactId>component-common-tools</artifactId>
+                <version>${forge-fast-boot.version}</version>
+            </dependency>
+
+            <!--自定义组件：认证授权组件-->
+            <dependency>
+                <groupId>com.snykta</groupId>
+                <artifactId>component-security</artifactId>
+                <version>${forge-fast-boot.version}</version>
+            </dependency>
+
+            <!--自定义组件：mybatisPlus核心组件-->
+            <dependency>
+                <groupId>com.snykta</groupId>
+                <artifactId>component-mybatis-plus</artifactId>
+                <version>${forge-fast-boot.version}</version>
+            </dependency>
+
+            <!-- SpringBoot 依赖配置 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--工具类集合-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <!--mybatisPlus-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <!--druid连接池-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${spring-druid.version}</version>
+            </dependency>
+
+            <!--OkHttp-->
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${ok-http3.version}</version>
+            </dependency>
+
+            <!--自动生成API文档-->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-openapi2-spring-boot-starter</artifactId>
+                <version>${knife4j-api.version}</version>
+            </dependency>
+
+            <!--模板解析器-->
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity</artifactId>
+                <version>${apache.velocity.version}</version>
+            </dependency>
+
+            <!-- Sa-Token 权限认证 -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-spring-boot-starter</artifactId>
+                <version>${sa.token.version}</version>
+            </dependency>
+
+            <!-- Sa-Token 整合 Redis （使用 jackson 序列化方式） -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-redis-jackson</artifactId>
+                <version>${sa.token.version}</version>
+            </dependency>
+
+            <!--连接池-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${commons-pool2.version}</version>
+            </dependency>
+
+            <!--开始
+            解释：之所以单体项目也加入openfeign依赖，是因为可以使用feign某些特性，例如当对接三方API时候，如果对接少量的则可以使用http客
+            户端，例如OkHttp，但当需要对接海量API时候，使用OkHttp就会出现接口管理过于混乱臃肿，因此可以使用feign的方式进行请求API。具体可以看使用案例-->
+            <!--新版SpringCloud使用的负载均衡-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-loadbalancer</artifactId>
+                <version>${spring-cloud-loadbalancer.version}</version>
+            </dependency>
+
+            <!--跨服务请求feign-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-openfeign</artifactId>
+                <version>${spring-cloud-openfeign.version}</version>
+            </dependency>
+            <!--结束-->
+
+
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+    </build>
+
+    <repositories>
+        <repository>
+            <id>public</id>
+            <name>AliYun nexus</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>central</id>
+            <name>Maven Central</name>
+            <url>https://repo.maven.apache.org/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <name>AliYun nexus</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+</project>
