@@ -62,9 +62,16 @@
             <groupId>com.snykta</groupId>
             <artifactId>component-basic-web</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.snykta</groupId>
-            <artifactId>component-open-feign</artifactId>
+            <artifactId>component-code-generator</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.snykta</groupId>
+            <artifactId>component-mybatis-plus</artifactId>
         </dependency>
 
     </dependencies>

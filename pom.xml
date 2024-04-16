@@ -79,6 +79,13 @@
                 <version>${forge-fast-boot.version}</version>
             </dependency>
 
+            <!--自定义组件：代码自动生成核心组件-->
+            <dependency>
+                <groupId>com.snykta</groupId>
+                <artifactId>component-code-generator</artifactId>
+                <version>${forge-fast-boot.version}</version>
+            </dependency>
+
 
             <!-- SpringBoot 依赖配置 -->
             <dependency>
