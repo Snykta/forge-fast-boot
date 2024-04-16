@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.snykta.open.feign.config.FeignAutoConfig
+
+
+  

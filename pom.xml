@@ -28,8 +28,6 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-boot.version>2.7.13</spring-boot.version>
-        <spring-cloud-loadbalancer.version>3.1.7</spring-cloud-loadbalancer.version>
-        <spring-cloud-openfeign.version>3.1.8</spring-cloud-openfeign.version>
         <hutool.version>5.8.15</hutool.version>
         <mybatis-plus.version>3.5.3</mybatis-plus.version>
         <spring-druid.version>1.2.16</spring-druid.version>
@@ -38,6 +36,9 @@
         <apache.velocity.version>1.7</apache.velocity.version>
         <sa.token.version>1.36.0</sa.token.version>
         <commons-pool2.version>2.11.1</commons-pool2.version>
+        <spring-cloud-loadbalancer.version>3.1.7</spring-cloud-loadbalancer.version>
+        <spring-cloud-openfeign.version>3.1.8</spring-cloud-openfeign.version>
+        <github-feign-okhttp.version>11.10</github-feign-okhttp.version>
     </properties>
 
 
@@ -77,6 +78,7 @@
                 <artifactId>component-mybatis-plus</artifactId>
                 <version>${forge-fast-boot.version}</version>
             </dependency>
+
 
             <!-- SpringBoot 依赖配置 -->
             <dependency>
@@ -151,8 +153,18 @@
             </dependency>
 
             <!--开始
+
             解释：之所以单体项目也加入openfeign依赖，是因为可以使用feign某些特性，例如当对接三方API时候，如果对接少量的则可以使用http客
-            户端，例如OkHttp，但当需要对接海量API时候，使用OkHttp就会出现接口管理过于混乱臃肿，因此可以使用feign的方式进行请求API。具体可以看使用案例-->
+            户端，例如OkHttp，但当需要对接海量API时候，使用OkHttp就会出现接口管理过于混乱臃肿，因此可以使用feign的方式进行请求API，并且可以
+            做到响应后修改、请求前请求、拦截请求等、更加专业。-->
+
+            <!--自定义组件：openFeign组件-->
+            <dependency>
+                <groupId>com.snykta</groupId>
+                <artifactId>component-open-feign</artifactId>
+                <version>${forge-fast-boot.version}</version>
+            </dependency>
+
             <!--新版SpringCloud使用的负载均衡-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -165,6 +177,13 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-openfeign</artifactId>
                 <version>${spring-cloud-openfeign.version}</version>
+            </dependency>
+
+            <!--feign内部OkHttp-->
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-okhttp</artifactId>
+                <version>${github-feign-okhttp.version}</version>
             </dependency>
             <!--结束-->
 

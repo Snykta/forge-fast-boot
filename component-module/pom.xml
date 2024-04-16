@@ -25,6 +25,7 @@
         <module>component-redis</module>
         <module>component-mybatis-plus</module>
         <module>component-security</module>
+        <module>component-open-feign</module>
     </modules>
 
 
