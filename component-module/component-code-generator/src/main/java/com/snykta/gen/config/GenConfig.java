@@ -1,19 +1,23 @@
 package com.snykta.gen.config;
 
 
+import com.snykta.basic.web.config.WebMvcConfig;
 import com.snykta.gen.mapper.MySQLGeneratorMapper;
 import com.snykta.gen.mapper.OracleGeneratorMapper;
 import com.snykta.gen.mapper.PostgreSQLGeneratorMapper;
 import com.snykta.gen.mapper.SQLServerGeneratorMapper;
 import com.snykta.gen.mapper.base.BaseGeneratorMapper;
+import com.snykta.mybatis.config.MybatisPlusAutoConfig;
 import com.snykta.tools.exception.ServiceException;
 import com.snykta.tools.utils.CyStrUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.*;
 import javax.annotation.Resource;
+import javax.sql.DataSource;
 
 @Configuration
 @Slf4j
@@ -21,6 +25,7 @@ import javax.annotation.Resource;
 @ComponentScan(basePackages = {"com.snykta.gen"})
 @MapperScan("com.snykta.gen.mapper")
 @ConditionalOnProperty(name = "gen.code.config.enable", havingValue = "true")
+@ConditionalOnClass({DataSource.class, MybatisPlusAutoConfig.class, WebMvcConfig.class})
 public class GenConfig {
 
     @Value("${gen.code.config.dbType}")
