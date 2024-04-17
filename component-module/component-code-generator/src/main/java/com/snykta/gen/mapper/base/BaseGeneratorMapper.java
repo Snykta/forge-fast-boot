@@ -7,7 +7,6 @@ import com.snykta.gen.dto.ColumnDto;
 import com.snykta.gen.dto.SearchDto;
 import com.snykta.gen.dto.TableDto;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 

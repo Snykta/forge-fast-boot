@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  */
 @Controller
-@RequestMapping("/gen")
+@RequestMapping("gen")
 @ConditionalOnProperty(name = "gen.code.config.enable", havingValue = "true")
 public class GeneratorController {
 
