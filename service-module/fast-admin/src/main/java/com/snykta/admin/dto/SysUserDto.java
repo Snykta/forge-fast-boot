@@ -6,7 +6,6 @@ import lombok.Data;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
-import java.util.List;
 
 
 /**
@@ -15,7 +14,7 @@ import java.util.List;
  * 表结构对应 Dto
  *
  * @author Snykta
- * @date 2023-09-27
+ * @date 2024-04-18
  */
 @Data
 @ApiModel(value = "用户信息表")
@@ -52,9 +51,9 @@ public class SysUserDto implements Serializable {
 
 
     /**
-    * 帐号状态（Y正常 N停用）
+    * 帐号状态（0正常 1停用）
     */
-    @ApiModelProperty(value = "帐号状态（Y正常 N停用）")
+    @ApiModelProperty(value = "帐号状态（0正常 1停用）")
     private String statusCode;
 
 
@@ -108,18 +107,5 @@ public class SysUserDto implements Serializable {
     @ApiModelProperty(value = "备注")
     private String remarkInfo;
 
-
-
-    /**
-     * 权限编码集合
-     */
-    @ApiModelProperty(value = "权限编码集合")
-    private List<String> rightCodeList;
-
-    /**
-     * 角色编码集合
-     */
-    @ApiModelProperty(value = "角色编码集合")
-    private  List<String> roleCodeList;
 
 }

@@ -18,5 +18,11 @@ public class SearchUserDto extends BaseSearchDto {
     @ApiModelProperty("用户名称")
     private String userName;
 
+    /**
+     * 手机号
+     */
+    @ApiModelProperty("手机号")
+    private String phoneNumber;
 
 }
+
