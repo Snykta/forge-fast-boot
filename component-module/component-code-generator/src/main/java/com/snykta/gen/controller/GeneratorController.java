@@ -1,6 +1,7 @@
 package com.snykta.gen.controller;
 
 import cn.hutool.core.io.IoUtil;
+import com.snykta.basic.web.web.controller.BaseController;
 import com.snykta.gen.dto.SearchDto;
 import com.snykta.gen.dto.TableDto;
 import com.snykta.gen.service.GeneratorService;
@@ -23,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 @RequestMapping("gen")
 @ConditionalOnProperty(name = "gen.code.config.enable", havingValue = "true")
-public class GeneratorController {
+public class GeneratorController extends BaseController {
 
 
     private final GeneratorService sysGeneratorService;
