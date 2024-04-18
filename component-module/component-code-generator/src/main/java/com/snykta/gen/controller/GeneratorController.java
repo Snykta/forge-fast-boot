@@ -7,6 +7,8 @@ import com.snykta.gen.service.GeneratorService;
 import com.snykta.tools.utils.CyStrUtil;
 import com.snykta.tools.web.page.PageDto;
 import com.snykta.tools.web.result.Ret;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  * 代码生成器
  *
  */
+@Api(tags = "自动生成代码", value = "自动生成代码")
 @Controller
 @RequestMapping("gen")
 @ConditionalOnProperty(name = "gen.code.config.enable", havingValue = "true")
@@ -32,6 +35,7 @@ public class GeneratorController {
     /**
      * 分页
      */
+    @ApiOperation("分页查询数据表")
     @ResponseBody
     @PostMapping("/queryPage")
     public Ret<PageDto<TableDto>> queryPage(@RequestBody SearchDto searchDto) {
@@ -42,6 +46,7 @@ public class GeneratorController {
     /**
      * 生成代码压缩包
      */
+    @ApiOperation("生成代码压缩包")
     @GetMapping("/code")
     public void code(@RequestParam("tables") String tables,@RequestParam("packName") String packName, HttpServletResponse response) throws Exception {
         byte[] data = sysGeneratorService.generatorCode(CyStrUtil.splitToArray(tables, ","), packName);
