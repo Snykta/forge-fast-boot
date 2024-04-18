@@ -23,7 +23,6 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
 import javax.servlet.Servlet;
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
@@ -34,6 +33,9 @@ import java.util.Objects;
 
 /**
  * 控制台日志记录输出
+ *
+ * 注意：自定义业务 Controller 必须继承 BaseController 才会记录日志
+ *
  */
 
 @Component
@@ -51,7 +53,7 @@ public class LogAspect {
     }
 
 
-    @Pointcut("execution(public * com.snykta.*.controller.*Controller.*(..))")
+    @Pointcut("target(com.snykta.basic.web.web.controller.BaseController)")
     public void inAction() {
     }
 
