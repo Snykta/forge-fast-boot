@@ -10,7 +10,7 @@ public class GeneralConstant {
     /**
      * swagger 扫描路径
      */
-    public static final String swaggerBasePackage = "com.snykta";
+    public static final String swaggerBasePackage = "com.snyktaaa";
 
 
 }

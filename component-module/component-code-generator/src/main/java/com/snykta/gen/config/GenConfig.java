@@ -12,9 +12,10 @@ import com.snykta.tools.exception.ServiceException;
 import com.snykta.tools.utils.CyStrUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.*;
 import javax.annotation.Resource;
 import javax.sql.DataSource;
@@ -26,10 +27,11 @@ import javax.sql.DataSource;
 @MapperScan("com.snykta.gen.mapper")
 @ConditionalOnProperty(name = "gen.code.config.enable", havingValue = "true")
 @ConditionalOnClass({DataSource.class, MybatisPlusAutoConfig.class, WebMvcConfig.class})
+@EnableConfigurationProperties(value = GenPropertyConfig.class)
 public class GenConfig {
 
-    @Value("${gen.code.config.dbType}")
-    private String dbType;
+    @Autowired
+    private GenPropertyConfig genPropertyConfig;
     @Resource
     private MySQLGeneratorMapper mySQLGeneratorMapper;
     @Resource
@@ -42,8 +44,9 @@ public class GenConfig {
     @Bean
     @Primary
     public BaseGeneratorMapper getGeneratorDao() {
+        String dbType = genPropertyConfig.getDbType();
         if (CyStrUtil.isEmpty(dbType)) {
-            throw new ServiceException("请配置数据库类型");
+            throw new ServiceException("开启自动生成代码功能，需要配置数据库类型");
         }
         if (CyStrUtil.equalsIgnoreCase("mysql", dbType)) {
             return mySQLGeneratorMapper;
