@@ -86,6 +86,12 @@
                 <version>${forge-fast-boot.version}</version>
             </dependency>
 
+            <!--自定义组件：事件发布组件-->
+            <dependency>
+                <groupId>com.snykta</groupId>
+                <artifactId>component-event-bus</artifactId>
+                <version>${forge-fast-boot.version}</version>
+            </dependency>
 
             <!-- SpringBoot 依赖配置 -->
             <dependency>

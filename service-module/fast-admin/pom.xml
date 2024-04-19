@@ -73,6 +73,11 @@
             <artifactId>component-code-generator</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.snykta</groupId>
+            <artifactId>component-event-bus</artifactId>
+        </dependency>
+
     </dependencies>
 
 
