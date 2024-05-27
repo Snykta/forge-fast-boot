@@ -32,14 +32,14 @@
 
 
 
-    <!-- 系统日志输出 -->
+    <!-- 系统日志输出(以磁盘文件形式保存) -->
     <appender name="file_info" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--当前活动名称-->
-        <file>${log.path}/${logFileName}/info_${logFileName}.log</file>
+        <file>${log.path}/${logFileName}/${logFileName}_info.log</file>
         <!-- 循环政策：基于时间创建日志文件 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 归档的日志文件名格式 -->
-            <fileNamePattern>${log.path}/${logFileName}/info_${logFileName}-%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+            <fileNamePattern>${log.path}/${logFileName}/${logFileName}-%d{yyyy-MM-dd}_info.log</fileNamePattern>
 
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <!-- maxFileSize:这是活动文件的大小，默认值是10MB -->
@@ -63,14 +63,14 @@
         </filter>
     </appender>
 
-
+    <!-- 系统日志输出(以磁盘文件形式保存) -->
     <appender name="file_error" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--当前活动名称-->
-        <file>${log.path}/${logFileName}/error_${logFileName}.log</file>
+        <file>${log.path}/${logFileName}/${logFileName}_error.log</file>
         <!-- 循环政策：基于时间创建日志文件 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 归档的日志文件名格式 -->
-            <fileNamePattern>${log.path}/${logFileName}/error_${logFileName}-%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+            <fileNamePattern>${log.path}/${logFileName}/${logFileName}-%d{yyyy-MM-dd}_error.log</fileNamePattern>
 
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <!-- maxFileSize:这是活动文件的大小，默认值是10MB -->
@@ -96,23 +96,79 @@
 
 
 
+    <!-- 上传日志到openobserve。比ES更轻量-->
+    <appender name="Openobserve" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>info</level>
+        </filter>
+        <!--替换为fluentbit收集器地址-->
+        <destination>192.168.93.27:24224</destination>
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <pattern>
+                    <pattern>
+                        {
+                        "event.dataset":"${spring.application.name}-${spring.profiles.active}",
+                        "level": "%level",
+                        "createTime": "%d{yyyy-MM-dd HH:mm:ss}",
+                        "trace": "%X{X-B3-TraceId:-}",
+                        "requestId": "%X{requestId}",
+                        "host": {"ip":"%ip"},
+                        "span": "%X{X-B3-SpanId:-}",
+                        "parent": "%X{X-B3-ParentSpanId:-}",
+                        "thread": "%thread",
+                        "className": "%logger{40}",
+                        "message": "%message",
+                        "stackTrace": "%exception{10}"
+                        }
+                    </pattern>
+                </pattern>
+            </providers>
+        </encoder>
+        <connectionStrategy>
+            <roundRobin>
+                <connectionTTL>5 minutes</connectionTTL>
+            </roundRobin>
+        </connectionStrategy>
+    </appender>
 
-    <!--控制台-->
-    <root level="info">
-        <appender-ref ref="console" />
-    </root>
 
-    <!--系统操作日志-->
+
+
+
+    <!--具体日志采用哪种方式逻辑处理-->
     <root level="info">
-        <if condition='!property("logFileName").equals("defaultName")'>
+
+        <!--开发环境在默认控制台显示-->
+        <if condition='property("spring.profiles.active").contains("dev")'>
             <then>
-                <appender-ref ref="file_info"/>
-                <appender-ref ref="file_error"/>
+                <appender-ref ref="console"/>
             </then>
+        </if>
+
+
+        <!--生产环境按实际配置来处理-->
+        <if condition='property("spring.profiles.active").contains("prod")'>
+
+            <!--本地以磁盘文件形式保存-->
+            <if condition='property("log.record.type").contains("local") and !property("logFileName").equals("defaultName")'>
+                <then>
+                    <appender-ref ref="file_info"/>
+                    <appender-ref ref="file_error"/>
+                </then>
+            </if>
+
+
+            <!--上传到云端记录日志。例如ES、OpenSearch、数据库...在此配置的为(fluentbit + openobserve)-->
+            <if condition='property("log.record.type").contains("cloud")'>
+                <then>
+                    <appender-ref ref="Openobserve"/>
+                </then>
+            </if>
+
         </if>
     </root>
 
-    <!--未来实现在ES中存储-->
 
 
 </configuration>
