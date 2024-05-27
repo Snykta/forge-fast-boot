@@ -39,6 +39,7 @@
         <spring-cloud-loadbalancer.version>3.1.7</spring-cloud-loadbalancer.version>
         <spring-cloud-openfeign.version>3.1.8</spring-cloud-openfeign.version>
         <github-feign-okhttp.version>11.10</github-feign-okhttp.version>
+        <logstash.logback.encoder.version>5.2</logstash.logback.encoder.version>
     </properties>
 
 
@@ -201,6 +202,12 @@
             <!--结束-->
 
 
+            <!--LogStash日志收集-->
+            <dependency>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
+                <version>${logstash.logback.encoder.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
