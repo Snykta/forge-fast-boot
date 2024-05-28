@@ -9,6 +9,13 @@
     </parent>
 
 
+    <!--开始
+        解释：之所以单体项目也加入openfeign依赖，是因为可以使用feign某些特性，例如当对接三方API时候，如果对接少量的则可以使用http客
+        户端，例如OkHttp，但当需要对接海量API时候，使用OkHttp就会出现接口管理过于混乱臃肿，因此可以使用feign的方式进行请求API，并且可以
+        做到响应后修改、请求前请求、拦截请求等、更加专业。
+
+        引用此包需要在项目启动类上添加注解：@EnableFeignClients
+    -->
 
     <artifactId>component-open-feign</artifactId>
     <version>1.0.0</version>
@@ -42,10 +49,10 @@
             <artifactId>okhttp</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-loadbalancer</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-loadbalancer</artifactId>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>com.snykta</groupId>
