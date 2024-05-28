@@ -38,66 +38,76 @@
     </appender>
 
 
+
     <!-- 系统日志输出(以磁盘文件形式保存) -->
     <appender name="file_info" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <!--当前活动名称-->
-        <file>${log.path}/${logFileName}/${logFileName}_info.log</file>
-        <!-- 循环政策：基于时间创建日志文件 -->
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- 归档的日志文件名格式 -->
-            <fileNamePattern>${log.path}/${logFileName}/${logFileName}-%d{yyyy-MM-dd}_info_%i.log</fileNamePattern>
+        <if condition='!property("logFileName").equals("defaultName")'>
+            <then>
+                <!--当前活动名称-->
+                <file>${log.path}/${logFileName}/${logFileName}_info.log</file>
+                <!-- 循环政策：基于时间创建日志文件 -->
+                <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                    <!-- 归档的日志文件名格式 -->
+                    <fileNamePattern>${log.path}/${logFileName}/${logFileName}-%d{yyyy-MM-dd}_info_%i.log</fileNamePattern>
 
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <!-- maxFileSize:这是活动文件的大小，默认值是10MB -->
-                <maxFileSize>10MB</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
+                    <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                        <!-- maxFileSize:这是活动文件的大小，默认值是10MB -->
+                        <maxFileSize>10MB</maxFileSize>
+                    </timeBasedFileNamingAndTriggeringPolicy>
 
-            <!-- 日志最大的历史 90天 -->
-            <maxHistory>90</maxHistory>
-        </rollingPolicy>
-        <encoder>
-            <charset>utf8</charset>
-            <pattern>${log.pattern}</pattern>
-        </encoder>
-        <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <!-- 过滤的级别 -->
-            <level>INFO</level>
-            <!-- 匹配时的操作：接收（记录） -->
-            <onMatch>ACCEPT</onMatch>
-            <!-- 不匹配时的操作：拒绝（不记录） -->
-            <onMismatch>DENY</onMismatch>
-        </filter>
+                    <!-- 日志最大的历史 90天 -->
+                    <maxHistory>90</maxHistory>
+                </rollingPolicy>
+                <encoder>
+                    <charset>utf8</charset>
+                    <pattern>${log.pattern}</pattern>
+                </encoder>
+                <filter class="ch.qos.logback.classic.filter.LevelFilter">
+                    <!-- 过滤的级别 -->
+                    <level>INFO</level>
+                    <!-- 匹配时的操作：接收（记录） -->
+                    <onMatch>ACCEPT</onMatch>
+                    <!-- 不匹配时的操作：拒绝（不记录） -->
+                    <onMismatch>DENY</onMismatch>
+                </filter>
+            </then>
+        </if>
     </appender>
+
 
     <!-- 系统日志输出(以磁盘文件形式保存) -->
     <appender name="file_error" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <!--当前活动名称-->
-        <file>${log.path}/${logFileName}/${logFileName}_error.log</file>
-        <!-- 循环政策：基于时间创建日志文件 -->
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- 归档的日志文件名格式 -->
-            <fileNamePattern>${log.path}/${logFileName}/${logFileName}-%d{yyyy-MM-dd}_error_%i.log</fileNamePattern>
+        <if condition='!property("logFileName").equals("defaultName")'>
+            <then>
+                <!--当前活动名称-->
+                <file>${log.path}/${logFileName}/${logFileName}_error.log</file>
+                <!-- 循环政策：基于时间创建日志文件 -->
+                <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                    <!-- 归档的日志文件名格式 -->
+                    <fileNamePattern>${log.path}/${logFileName}/${logFileName}-%d{yyyy-MM-dd}_error_%i.log</fileNamePattern>
 
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <!-- maxFileSize:这是活动文件的大小，默认值是10MB -->
-                <maxFileSize>10MB</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
+                    <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                        <!-- maxFileSize:这是活动文件的大小，默认值是10MB -->
+                        <maxFileSize>10MB</maxFileSize>
+                    </timeBasedFileNamingAndTriggeringPolicy>
 
-            <!-- 日志最大的历史 90天 -->
-            <maxHistory>90</maxHistory>
-        </rollingPolicy>
-        <encoder>
-            <charset>utf8</charset>
-            <pattern>${log.pattern}</pattern>
-        </encoder>
-        <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <!-- 过滤的级别 -->
-            <level>ERROR</level>
-            <!-- 匹配时的操作：接收（记录） -->
-            <onMatch>ACCEPT</onMatch>
-            <!-- 不匹配时的操作：拒绝（不记录） -->
-            <onMismatch>DENY</onMismatch>
-        </filter>
+                    <!-- 日志最大的历史 90天 -->
+                    <maxHistory>90</maxHistory>
+                </rollingPolicy>
+                <encoder>
+                    <charset>utf8</charset>
+                    <pattern>${log.pattern}</pattern>
+                </encoder>
+                <filter class="ch.qos.logback.classic.filter.LevelFilter">
+                    <!-- 过滤的级别 -->
+                    <level>ERROR</level>
+                    <!-- 匹配时的操作：接收（记录） -->
+                    <onMatch>ACCEPT</onMatch>
+                    <!-- 不匹配时的操作：拒绝（不记录） -->
+                    <onMismatch>DENY</onMismatch>
+                </filter>
+            </then>
+        </if>
     </appender>
 
 
@@ -155,12 +165,8 @@
             <then>
                 <if condition='property("log.record.type").contains("local")'>
                     <then>
-                        <if condition='!property("logFileName").equals("defaultName")'>
-                            <then>
-                                <appender-ref ref="file_info"/>
-                                <appender-ref ref="file_error"/>
-                            </then>
-                        </if>
+                        <appender-ref ref="file_info"/>
+                        <appender-ref ref="file_error"/>
                     </then>
                 </if>
             </then>
