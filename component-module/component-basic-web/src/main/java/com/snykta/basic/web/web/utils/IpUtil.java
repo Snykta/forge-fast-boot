@@ -39,7 +39,7 @@ public class IpUtil {
                 ip = request.getRemoteAddr();
             }
         } catch (Exception e) {
-            log.error("IPUtils ERROR 获取IP异常", e);
+            log.warn("IPUtils ERROR 获取IP异常", e);
         }
         // 使用代理，则获取第一个IP地址
         if (!CyStrUtil.isEmpty(ip) && ip.length() > MAX_LENGTH) {

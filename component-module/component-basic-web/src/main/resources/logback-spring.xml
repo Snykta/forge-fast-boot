@@ -10,6 +10,8 @@
     <springProperty name="spring.profiles.active" source="spring.profiles.active" defaultValue="xxx"/>
     <!--当前日志记录方式属性-->
     <springProperty name="log.record.type" source="log.record.type" defaultValue="xxx"/>
+    <!--项目名称-->
+    <springProperty name="spring.application.name" source="spring.application.name" defaultValue="xxx"/>
 
     <!-- 文件中的日志输出格式 -->
     <property name="log.pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{20} - [%method,%line] - %msg%n" />
