@@ -1,4 +1,4 @@
-package com.snykta.open.feign.interceptor;
+package com.snykta.request.tool.interceptor;
 
 
 
@@ -15,7 +15,7 @@ public class FeignRequestInterceptor implements RequestInterceptor {
 
     @Override
     public void apply(RequestTemplate template) {
-        // 在此可以处理使用feign请求前的一些二次逻辑处理
+        // 在此可以处理使用feign请求前的一些统一二次逻辑处理。例如：添加请求头
 
     }
 

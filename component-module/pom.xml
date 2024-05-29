@@ -25,9 +25,9 @@
         <module>component-redis</module>
         <module>component-mybatis-plus</module>
         <module>component-security</module>
-        <module>component-open-feign</module>
         <module>component-code-generator</module>
         <module>component-event-bus</module>
+        <module>component-request-tool</module>
     </modules>
 
 

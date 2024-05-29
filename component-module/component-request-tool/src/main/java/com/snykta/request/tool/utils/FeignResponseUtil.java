@@ -1,4 +1,4 @@
-package com.snykta.open.feign.utils;
+package com.snykta.request.tool.utils;
 
 import cn.hutool.core.io.IoUtil;
 import cn.hutool.core.util.ZipUtil;

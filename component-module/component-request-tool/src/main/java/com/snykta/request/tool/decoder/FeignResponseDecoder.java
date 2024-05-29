@@ -1,7 +1,7 @@
-package com.snykta.open.feign.decoder;
+package com.snykta.request.tool.decoder;
 
 import cn.hutool.core.util.CharsetUtil;
-import com.snykta.open.feign.utils.FeignResponseUtil;
+import com.snykta.request.tool.utils.FeignResponseUtil;
 import feign.FeignException;
 import feign.Response;
 import lombok.extern.slf4j.Slf4j;
