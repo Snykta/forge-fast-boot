@@ -1,14 +1,12 @@
-package com.snykta.open.feign.config;
+package com.snykta.request.tool.config;
 
 
 
-import com.snykta.open.feign.decoder.FeignErrorDecoder;
-import com.snykta.open.feign.decoder.FeignResponseDecoder;
-import com.snykta.open.feign.interceptor.FeignRequestInterceptor;
-import com.snykta.open.feign.interceptor.OkHttpInterceptor;
+import com.snykta.request.tool.decoder.FeignResponseDecoder;
+import com.snykta.request.tool.interceptor.FeignRequestInterceptor;
+import com.snykta.request.tool.interceptor.OkHttpInterceptor;
 import feign.RequestInterceptor;
 import feign.codec.Decoder;
-import feign.codec.ErrorDecoder;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import org.springframework.beans.factory.DisposableBean;
@@ -24,15 +22,15 @@ import java.util.stream.Collectors;
 
 
 /**
- * Feign配置
+ * Request-Tool 配置
  */
 @Configuration
 @Slf4j
-@PropertySource("classpath:config/application-feign.properties")
-public class FeignAutoConfig implements DisposableBean {
+@PropertySource("classpath:config/application-request.properties")
+public class RequestToolAutoConfig implements DisposableBean {
 
-    public FeignAutoConfig(){
-        log.info("初始化[Feign]模块...");
+    public RequestToolAutoConfig(){
+        log.info("初始化[Request-Tool]模块...");
     }
 
 
@@ -58,14 +56,6 @@ public class FeignAutoConfig implements DisposableBean {
         return new FeignRequestInterceptor();
     }
 
-    /**
-     * 自定义异常解码器
-     * @return
-     */
-    @Bean
-    public ErrorDecoder errorDecoder() {
-        return new FeignErrorDecoder();
-    }
 
 
     @Bean
@@ -89,6 +79,6 @@ public class FeignAutoConfig implements DisposableBean {
 
     @Override
     public void destroy() throws Exception {
-        log.info("关闭[Feign]模块...");
+        log.info("关闭[Request-Tool]模块...");
     }
 }
