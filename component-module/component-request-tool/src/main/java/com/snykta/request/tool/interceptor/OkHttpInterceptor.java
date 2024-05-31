@@ -25,7 +25,7 @@ public class OkHttpInterceptor implements Interceptor {
         // 原始请求Response
         Response oldResponse = chain.proceed(chain.request());
         return  oldResponse.newBuilder()
-                .code(200) // 状态码写死 = 200。不然会被feign的ErrorDecoder异常机制捕获并报错，由于是单体项目，因此不需要ErrorDecoder捕获
+                .code(200) // 状态码写死 = 200。不然会被feign的ErrorDecoder异常机制捕获并报错，由于是单体项目，仅把它当作http请求使用，因此不需要ErrorDecoder捕获
                 .message(oldResponse.message())
                 .protocol(oldResponse.protocol())
                 .body(oldResponse.body())
