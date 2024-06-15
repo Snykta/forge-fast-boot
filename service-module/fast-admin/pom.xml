@@ -24,10 +24,10 @@
             <properties>
                 <profile.active>dev</profile.active>
                 <swagger.app.config.enable>true</swagger.app.config.enable>
-                <mysql.url><![CDATA[jdbc:mysql://127.0.0.1:3306/forge_fast_boot?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false&serverTimezone=Asia/Shanghai]]></mysql.url>
+                <mysql.url><![CDATA[jdbc:mysql://192.168.105.129:3306/fast_admin?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false&serverTimezone=Asia/Shanghai]]></mysql.url>
                 <mysql.username>root</mysql.username>
                 <mysql.password>123456</mysql.password>
-                <redis.host>127.0.0.1</redis.host>
+                <redis.host>192.168.105.129</redis.host>
                 <redis.port>6379</redis.port>
                 <redis.password></redis.password>
                 <redis.db>11</redis.db>

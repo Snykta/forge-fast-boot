@@ -160,8 +160,8 @@
         </if>
 
 
-        <!--生产环境：本地以磁盘文件形式保存-->
-        <if condition='property("spring.profiles.active").contains("prod")'>
+        <!--非开发环境：本地以磁盘文件形式保存-->
+        <if condition='!property("spring.profiles.active").contains("dev")'>
             <then>
                 <if condition='property("log.record.type").contains("local")'>
                     <then>
@@ -173,8 +173,8 @@
         </if>
 
 
-        <!--生产环境：上传到云端记录日志。例如ES、OpenSearch、数据库...在此配置的为(FluentBit + OpenObserve)-->
-        <if condition='property("spring.profiles.active").contains("prod")'>
+        <!--非开发环境：上传到云端记录日志。例如ES、OpenSearch、数据库...在此配置的为(FluentBit + OpenObserve)-->
+        <if condition='!property("spring.profiles.active").contains("dev")'>
             <then>
                 <if condition='property("log.record.type").contains("cloud")'>
                     <then>
