@@ -17,7 +17,7 @@
 
     <description>
         web基础通用配置，如果是Web项目则都可以引用此包
-        PS: 如需要限流注解，请单独在业务项目中引入component-redis 依赖
+        PS: 如需要限流注解，请单独在业务项目中引入 component-starter-redis 依赖
     </description>
 
 
