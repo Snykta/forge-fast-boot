@@ -23,7 +23,7 @@ public class RemoveBeanConfig implements BeanDefinitionRegistryPostProcessor {
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry beanDefinitionRegistry) {
         try {
             if (beanDefinitionRegistry.containsBeanDefinition("basicErrorController")) {
-                log.info("已经卸载默认的BasicErrorController处理器");
+                log.info("卸载默认BasicErrorController处理器，然后加载新的处理器");
                 beanDefinitionRegistry.removeBeanDefinition("basicErrorController");
             }
         } catch (Exception e) {
