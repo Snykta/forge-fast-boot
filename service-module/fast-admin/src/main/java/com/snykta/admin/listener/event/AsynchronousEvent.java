@@ -1,6 +1,6 @@
 package com.snykta.admin.listener.event;
 
-import com.snykta.eventbus.BaseEvent;
+import com.snykta.starter.eventbus.BaseEvent;
 
 /**
  * 异步测试事件类

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.snykta.fast.boot</groupId>
+        <artifactId>component-starter-module</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+
+    <!--开始
+        框架解释：
+        Request-Tool：是基于openfeign进行二次封装，进行请求三方接口统一管理。
+        之所以单体项目也加入openfeign依赖，是因为可以使用feign某些特性，例如当对接三方API时候，如果对接少量的则可以使用http客户端，例如OkHttp。
+        但当需要对接海量API时候，使用OkHttp就会出现接口管理过于混乱臃肿，因此可以使用feign的方式进行请求API，并且可以
+        做到响应后修改、请求前请求、拦截请求等、更加专业。
+
+        引用此包需要在项目启动类上添加注解：@EnableFeignClients
+    -->
+
+    <artifactId>component-starter-request-tool</artifactId>
+    <version>1.0.0</version>
+    <name>component-starter-request-tool</name>
+
+    <description>请求三方接口的工具类自定义模块，原理是基于OpenFeign的封装</description>
+
+    <!--版本属性-->
+    <properties>
+        <spring-cloud-openfeign.version>3.1.8</spring-cloud-openfeign.version>
+        <github-feign-okhttp.version>11.10</github-feign-okhttp.version>
+        <ok-http3.version>4.9.1</ok-http3.version>
+    </properties>
+
+    <dependencies>
+
+        <!--feign-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>${spring-cloud-openfeign.version}</version>
+        </dependency>
+
+        <!--替换feign的底层为okHttp。可以在SynchronousMethodHandler类中executeAndDecode方法可以验证是否使用了okHttp-->
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-okhttp</artifactId>
+            <version>${github-feign-okhttp.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.squareup.okhttp3</groupId>
+                    <artifactId>okhttp</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!--OkHttp-->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>${ok-http3.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.snykta.fast.boot</groupId>
+            <artifactId>component-starter-common-tools</artifactId>
+        </dependency>
+
+
+    </dependencies>
+
+
+</project>

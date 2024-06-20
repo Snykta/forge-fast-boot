@@ -3,8 +3,7 @@ package com.snykta.admin.service;
 
 import com.snykta.admin.dto.SearchUserDto;
 import com.snykta.admin.dto.SysUserDto;
-import com.snykta.admin.entity.SysUserEntity;
-import com.snykta.tools.web.page.PageDto;
+import com.snykta.starter.tools.web.page.PageDto;
 
 /**
  * 用户信息表
@@ -18,7 +17,7 @@ public interface ISysUserService {
      * 分页查询用户数据
      *
      * @param searchUserDto
-     * @return {@link com.snykta.tools.web.page.PageDto<com.snykta.admin.dto.SysUserDto>}
+     * @return {@link PageDto <com.snykta.admin.dto.SysUserDto>}
      * @author 王畅通
      * @history
      */

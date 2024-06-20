@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.snykta.starter.request.tool.config.RequestToolAutoConfig
+
+
+  

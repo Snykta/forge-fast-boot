@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.snykta</groupId>
+    <groupId>com.snykta.fast.boot</groupId>
     <artifactId>forge-fast-boot</artifactId>
     <version>1.0.0</version>
 
@@ -15,7 +15,7 @@
 
     <!--模块-->
     <modules>
-        <module>component-module</module>
+        <module>component-starter-module</module>
         <module>service-module</module>
     </modules>
 
@@ -43,57 +43,57 @@
         <dependencies>
             <!--自定义组件：web核心组件-->
             <dependency>
-                <groupId>com.snykta</groupId>
-                <artifactId>component-basic-web</artifactId>
+                <groupId>com.snykta.fast.boot</groupId>
+                <artifactId>component-starter-basic-web</artifactId>
                 <version>${forge-fast-boot.version}</version>
             </dependency>
 
             <!--自定义组件：redis核心组件-->
             <dependency>
-                <groupId>com.snykta</groupId>
-                <artifactId>component-redis</artifactId>
+                <groupId>com.snykta.fast.boot</groupId>
+                <artifactId>component-starter-redis</artifactId>
                 <version>${forge-fast-boot.version}</version>
             </dependency>
 
             <!--自定义组件：工具类、自定义常量、字典值等基础类组件-->
             <dependency>
-                <groupId>com.snykta</groupId>
-                <artifactId>component-common-tools</artifactId>
+                <groupId>com.snykta.fast.boot</groupId>
+                <artifactId>component-starter-common-tools</artifactId>
                 <version>${forge-fast-boot.version}</version>
             </dependency>
 
             <!--自定义组件：认证授权组件-->
             <dependency>
-                <groupId>com.snykta</groupId>
-                <artifactId>component-security</artifactId>
+                <groupId>com.snykta.fast.boot</groupId>
+                <artifactId>component-starter-security</artifactId>
                 <version>${forge-fast-boot.version}</version>
             </dependency>
 
             <!--自定义组件：mybatisPlus核心组件-->
             <dependency>
-                <groupId>com.snykta</groupId>
-                <artifactId>component-mybatis-plus</artifactId>
+                <groupId>com.snykta.fast.boot</groupId>
+                <artifactId>component-starter-mybatis-plus</artifactId>
                 <version>${forge-fast-boot.version}</version>
             </dependency>
 
             <!--自定义组件：代码自动生成核心组件-->
             <dependency>
-                <groupId>com.snykta</groupId>
-                <artifactId>component-code-generator</artifactId>
+                <groupId>com.snykta.fast.boot</groupId>
+                <artifactId>component-starter-code-generator</artifactId>
                 <version>${forge-fast-boot.version}</version>
             </dependency>
 
             <!--自定义组件：事件发布组件-->
             <dependency>
-                <groupId>com.snykta</groupId>
-                <artifactId>component-event-bus</artifactId>
+                <groupId>com.snykta.fast.boot</groupId>
+                <artifactId>component-starter-event-bus</artifactId>
                 <version>${forge-fast-boot.version}</version>
             </dependency>
 
             <!--自定义组件：通用请求组件-->
             <dependency>
-                <groupId>com.snykta</groupId>
-                <artifactId>component-request-tool</artifactId>
+                <groupId>com.snykta.fast.boot</groupId>
+                <artifactId>component-starter-request-tool</artifactId>
                 <version>${forge-fast-boot.version}</version>
             </dependency>
 

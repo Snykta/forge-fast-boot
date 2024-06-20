@@ -9,14 +9,13 @@ import com.snykta.admin.mapper.SysUserMapper;
 import com.snykta.admin.dto.SysUserDto;
 import com.snykta.admin.entity.SysUserEntity;
 import com.snykta.admin.service.ISysUserService;
-import com.snykta.mybatis.page.PageRequest;
-import com.snykta.tools.utils.CyConvertUtil;
-import com.snykta.tools.utils.CyStrUtil;
-import com.snykta.tools.web.page.PageDto;
+import com.snykta.starter.mybatis.page.PageRequest;
+import com.snykta.starter.tools.utils.CyConvertUtil;
+import com.snykta.starter.tools.utils.CyStrUtil;
+import com.snykta.starter.tools.web.page.PageDto;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.snykta.basic.web.web.service.BaseService;
-import java.util.Map;
+import com.snykta.starter.basic.web.web.service.BaseService;
 import lombok.extern.slf4j.Slf4j;
 
 /**

@@ -1,6 +1,6 @@
 package com.snykta.admin.dto;
 
-import com.snykta.tools.web.search.BaseSearchDto;
+import com.snykta.starter.tools.web.search.BaseSearchDto;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

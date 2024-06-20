@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.snykta</groupId>
+        <groupId>com.snykta.fast.boot</groupId>
         <artifactId>service-module</artifactId>
         <version>1.0.0</version>
     </parent>
@@ -58,23 +58,23 @@
         </dependency>
 
         <dependency>
-            <groupId>com.snykta</groupId>
-            <artifactId>component-basic-web</artifactId>
+            <groupId>com.snykta.fast.boot</groupId>
+            <artifactId>component-starter-basic-web</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>com.snykta</groupId>
-            <artifactId>component-mybatis-plus</artifactId>
+            <groupId>com.snykta.fast.boot</groupId>
+            <artifactId>component-starter-mybatis-plus</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>com.snykta</groupId>
-            <artifactId>component-code-generator</artifactId>
+            <groupId>com.snykta.fast.boot</groupId>
+            <artifactId>component-starter-code-generator</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>com.snykta</groupId>
-            <artifactId>component-event-bus</artifactId>
+            <groupId>com.snykta.fast.boot</groupId>
+            <artifactId>component-starter-event-bus</artifactId>
         </dependency>
 
     </dependencies>

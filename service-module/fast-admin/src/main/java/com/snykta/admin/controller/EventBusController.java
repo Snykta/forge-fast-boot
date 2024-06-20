@@ -4,9 +4,9 @@ package com.snykta.admin.controller;
 
 import com.snykta.admin.listener.event.AsynchronousEvent;
 import com.snykta.admin.listener.event.SynchronizeEvent;
-import com.snykta.basic.web.web.controller.BaseController;
-import com.snykta.eventbus.EventBusTemplate;
-import com.snykta.tools.web.result.Ret;
+import com.snykta.starter.basic.web.web.controller.BaseController;
+import com.snykta.starter.eventbus.EventBusTemplate;
+import com.snykta.starter.tools.web.result.Ret;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.MediaType;
