@@ -248,12 +248,5 @@
     </pluginRepositories>
 
 
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/Snykta/forge-fast-boot</url>
-        </repository>
-    </distributionManagement>
 
 </project>
