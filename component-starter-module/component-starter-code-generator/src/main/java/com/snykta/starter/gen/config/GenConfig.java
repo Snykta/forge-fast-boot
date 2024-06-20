@@ -23,8 +23,8 @@ import javax.sql.DataSource;
 @Configuration
 @Slf4j
 @PropertySource("classpath:application-gen.properties")
-@ComponentScan(basePackages = {"com.snykta.gen"})
-@MapperScan("com.snykta.gen.mapper")
+@ComponentScan(basePackages = {"com.snykta.starter.gen"})
+@MapperScan("com.snykta.starter.gen.mapper")
 @ConditionalOnProperty(name = "gen.code.config.enable", havingValue = "true")
 @ConditionalOnClass({DataSource.class, MybatisPlusAutoConfig.class, WebMvcConfig.class})
 @EnableConfigurationProperties(value = GenPropertyConfig.class)
