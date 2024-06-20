@@ -23,7 +23,14 @@
 
     <!--版本属性-->
     <properties>
-        <forge-fast-boot.version>1.0.0</forge-fast-boot.version>
+        <component-starter-basic-web.version>1.0.0</component-starter-basic-web.version>
+        <component-starter-redis.version>1.0.0</component-starter-redis.version>
+        <component-starter-common-tools.version>1.0.0</component-starter-common-tools.version>
+        <component-starter-security.version>1.0.0</component-starter-security.version>
+        <component-starter-mybatis-plus.version>1.0.0</component-starter-mybatis-plus.version>
+        <component-starter-code-generator.version>1.0.0</component-starter-code-generator.version>
+        <component-starter-event-bus.version>1.0.0</component-starter-event-bus.version>
+        <component-starter-request-tool.version>1.0.0</component-starter-request-tool.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
@@ -45,56 +52,56 @@
             <dependency>
                 <groupId>com.snykta.fast.boot</groupId>
                 <artifactId>component-starter-basic-web</artifactId>
-                <version>${forge-fast-boot.version}</version>
+                <version>${component-starter-basic-web.version}</version>
             </dependency>
 
             <!--自定义组件：redis核心组件-->
             <dependency>
                 <groupId>com.snykta.fast.boot</groupId>
                 <artifactId>component-starter-redis</artifactId>
-                <version>${forge-fast-boot.version}</version>
+                <version>${component-starter-redis.version}</version>
             </dependency>
 
             <!--自定义组件：工具类、自定义常量、字典值等基础类组件-->
             <dependency>
                 <groupId>com.snykta.fast.boot</groupId>
                 <artifactId>component-starter-common-tools</artifactId>
-                <version>${forge-fast-boot.version}</version>
+                <version>${component-starter-common-tools.version}</version>
             </dependency>
 
             <!--自定义组件：认证授权组件-->
             <dependency>
                 <groupId>com.snykta.fast.boot</groupId>
                 <artifactId>component-starter-security</artifactId>
-                <version>${forge-fast-boot.version}</version>
+                <version>${component-starter-security.version}</version>
             </dependency>
 
             <!--自定义组件：mybatisPlus核心组件-->
             <dependency>
                 <groupId>com.snykta.fast.boot</groupId>
                 <artifactId>component-starter-mybatis-plus</artifactId>
-                <version>${forge-fast-boot.version}</version>
+                <version>${component-starter-mybatis-plus.version}</version>
             </dependency>
 
             <!--自定义组件：代码自动生成核心组件-->
             <dependency>
                 <groupId>com.snykta.fast.boot</groupId>
                 <artifactId>component-starter-code-generator</artifactId>
-                <version>${forge-fast-boot.version}</version>
+                <version>${component-starter-code-generator.version}</version>
             </dependency>
 
             <!--自定义组件：事件发布组件-->
             <dependency>
                 <groupId>com.snykta.fast.boot</groupId>
                 <artifactId>component-starter-event-bus</artifactId>
-                <version>${forge-fast-boot.version}</version>
+                <version>${component-starter-event-bus.version}</version>
             </dependency>
 
             <!--自定义组件：通用请求组件-->
             <dependency>
                 <groupId>com.snykta.fast.boot</groupId>
                 <artifactId>component-starter-request-tool</artifactId>
-                <version>${forge-fast-boot.version}</version>
+                <version>${component-starter-request-tool.version}</version>
             </dependency>
 
             <!-- SpringBoot 依赖配置 -->
