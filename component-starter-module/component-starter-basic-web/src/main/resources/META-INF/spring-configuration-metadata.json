@@ -31,7 +31,7 @@
     {
       "name": "log.record.cloudIpAddress",
       "type": "java.lang.String",
-      "description": "如果使用云端方式(cloud)则必须配置远程日志收集器的IP地址。在此仅支持FluentBit收集器",
+      "description": "如果使用云端方式(cloud)则必须配置远程日志收集器的IP地址",
       "sourceType": "com.snykta.starter.basic.web.log.LogRecordPropertyConfig",
       "defaultValue": "-1"
     }
