@@ -13,7 +13,7 @@
     <!--项目名称-->
     <springProperty name="spring.application.name" source="spring.application.name" defaultValue="xxx"/>
     <!--如果是云端记录则需要配置远程收集器IP地址-->
-    <springProperty name="log.record.cloudIpAddress" source="log.record.cloudIpAddress" defaultValue="xxx"/>
+    <springProperty name="log.record.cloudIpAddress" source="log.record.cloud-ip-address" defaultValue="xxx"/>
 
     <!-- 文件中的日志输出格式 -->
     <property name="log.pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{20} - [%method,%line] - %msg%n" />

@@ -19,7 +19,7 @@ public class LogRecordPropertyConfig {
 
     /**
      * 如果使用云端方式(cloud)则必须配置远程日志收集器的IP地址
-     * 在此仅支持FluentBit收集器
+     *
      */
     private String cloudIpAddress = "-1";
 
