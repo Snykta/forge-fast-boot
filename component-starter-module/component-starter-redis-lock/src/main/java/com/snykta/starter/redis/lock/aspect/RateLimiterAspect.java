@@ -1,8 +1,9 @@
-package com.snykta.starter.basic.web.aspect;
+package com.snykta.starter.redis.lock.aspect;
 
-import com.snykta.starter.basic.web.annotation.RateLimiter;
+
 import com.snykta.starter.basic.web.web.utils.IpUtil;
 import com.snykta.starter.redis.config.RedisAutoConfig;
+import com.snykta.starter.redis.lock.annotation.RateLimiter;
 import com.snykta.starter.tools.constant.AuthConstant;
 import com.snykta.starter.tools.exception.ServiceException;
 import com.snykta.starter.tools.utils.CyStrUtil;
@@ -43,7 +44,7 @@ public class RateLimiterAspect {
         this.limitRedisScript = limitRedisScript;
     }
 
-    @Pointcut("@annotation(com.snykta.starter.basic.web.annotation.RateLimiter)")
+    @Pointcut("@annotation(com.snykta.starter.redis.lock.annotation.RateLimiter)")
     public void rateLimit() {
 
     }

@@ -23,6 +23,7 @@
         <module>component-starter-common-tools</module>
         <module>component-starter-basic-web</module>
         <module>component-starter-redis</module>
+        <module>component-starter-redis-lock</module>
         <module>component-starter-mybatis-plus</module>
         <module>component-starter-security</module>
         <module>component-starter-code-generator</module>

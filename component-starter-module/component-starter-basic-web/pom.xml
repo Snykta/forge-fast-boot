@@ -17,7 +17,6 @@
 
     <description>
         web基础通用配置，如果是Web项目则都可以引用此包
-        PS: 如需要限流注解，请单独在业务项目中引入 component-starter-redis 依赖
     </description>
 
 
@@ -69,15 +68,6 @@
             <groupId>com.snykta.fast.boot</groupId>
             <artifactId>component-starter-common-tools</artifactId>
         </dependency>
-
-
-        <!--<optional>true</optional> 此Redis依赖不向下传递，需要按需引入-->
-        <dependency>
-            <groupId>com.snykta.fast.boot</groupId>
-            <artifactId>component-starter-redis</artifactId>
-            <optional>true</optional>
-        </dependency>
-
 
         <!--logback中使用if语法-->
         <dependency>

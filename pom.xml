@@ -25,6 +25,7 @@
     <properties>
         <component-starter-basic-web.version>1.0.0</component-starter-basic-web.version>
         <component-starter-redis.version>1.0.0</component-starter-redis.version>
+        <component-starter-redis-lock.version>1.0.0</component-starter-redis-lock.version>
         <component-starter-common-tools.version>1.0.0</component-starter-common-tools.version>
         <component-starter-security.version>1.0.0</component-starter-security.version>
         <component-starter-mybatis-plus.version>1.0.0</component-starter-mybatis-plus.version>
@@ -60,6 +61,13 @@
                 <groupId>com.snykta.fast.boot</groupId>
                 <artifactId>component-starter-redis</artifactId>
                 <version>${component-starter-redis.version}</version>
+            </dependency>
+
+            <!--自定义组件：Redis锁(令牌桶、分布式锁...)组件-->
+            <dependency>
+                <groupId>com.snykta.fast.boot</groupId>
+                <artifactId>component-starter-redis-lock</artifactId>
+                <version>${component-starter-redis-lock.version}</version>
             </dependency>
 
             <!--自定义组件：工具类、自定义常量、字典值等基础类组件-->

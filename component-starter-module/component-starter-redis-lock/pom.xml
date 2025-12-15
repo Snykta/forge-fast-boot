@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
@@ -9,21 +10,26 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>component-starter-code-generator</artifactId>
-    <version>1.0.0</version>
-    <name>component-starter-code-generator</name>
 
-    <description>自动生成代码模块</description>
+
+    <artifactId>component-starter-redis-lock</artifactId>
+    <version>1.0.0</version>
+    <name>component-starter-redis-lock</name>
+
+    <description>Redis锁(令牌桶、分布式锁...)自定义模块</description>
 
 
     <dependencies>
 
+        <!--<optional>true</optional> 此Redis依赖不向下传递，需要按需引入-->
         <dependency>
-            <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity</artifactId>
+            <groupId>com.snykta.fast.boot</groupId>
+            <artifactId>component-starter-redis</artifactId>
+            <optional>true</optional>
         </dependency>
 
 
+        <!--<optional>true</optional> 此Redis依赖不向下传递，需要按需引入-->
         <dependency>
             <groupId>com.snykta.fast.boot</groupId>
             <artifactId>component-starter-basic-web</artifactId>
@@ -33,17 +39,12 @@
 
         <dependency>
             <groupId>com.snykta.fast.boot</groupId>
-            <artifactId>component-starter-mybatis-plus</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
+            <artifactId>component-starter-common-tools</artifactId>
         </dependency>
 
     </dependencies>
+
+
 
 
 

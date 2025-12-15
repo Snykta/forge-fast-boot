@@ -32,6 +32,11 @@
 
         <dependency>
             <groupId>com.snykta.fast.boot</groupId>
+            <artifactId>component-starter-redis-lock</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.snykta.fast.boot</groupId>
             <artifactId>component-starter-mybatis-plus</artifactId>
         </dependency>
 

@@ -1,7 +1,6 @@
-package com.snykta.starter.basic.web.annotation;
+package com.snykta.starter.redis.lock.annotation;
 
 import org.springframework.core.annotation.AliasFor;
-
 import java.lang.annotation.*;
 import java.util.concurrent.TimeUnit;
 
