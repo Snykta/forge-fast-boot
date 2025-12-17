@@ -43,6 +43,12 @@
             <optional>true</optional>
         </dependency>
 
+        <dependency>
+            <groupId>com.snykta.fast.boot</groupId>
+            <artifactId>component-starter-common-tools</artifactId>
+            <optional>true</optional>
+        </dependency>
+
     </dependencies>
 
 

@@ -50,6 +50,11 @@
             <artifactId>component-starter-event-bus</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.snykta.fast.boot</groupId>
+            <artifactId>component-starter-common-tools</artifactId>
+        </dependency>
+
     </dependencies>
 
 
