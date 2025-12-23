@@ -5,7 +5,7 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -14,7 +14,7 @@ import javax.servlet.Servlet;
 /**
  * 移除某个bean
  */
-@Configuration
+@Component
 @Slf4j
 @ConditionalOnClass({Servlet.class, DispatcherServlet.class, WebMvcConfigurer.class})
 public class RemoveBeanConfig implements BeanDefinitionRegistryPostProcessor {
