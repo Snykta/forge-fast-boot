@@ -38,6 +38,8 @@ public class GenUtils {
 
         boolean hasBigDecimal = false;
 
+        boolean hasDate = false;
+
         TableEntity tableEntity = new TableEntity();
         tableEntity.setTableName(tableDto.getTableName());
         tableEntity.setComments(tableDto.getTableComment());
@@ -73,6 +75,7 @@ public class GenUtils {
             // 是否包含时间类型
             if (CyStrUtil.containsAnyIgnoreCase(attrType, "date", "time")) {
                 columnEntity.setHasDateTypeFlag(true);
+                hasDate = true;
             } else {
                 columnEntity.setHasDateTypeFlag(false);
             }
@@ -111,6 +114,7 @@ public class GenUtils {
         templateMap.put("pathName" , tableEntity.getClassNameSmall().toLowerCase());
         templateMap.put("columns" , tableEntity.getColumns());
         templateMap.put("hasBigDecimal" , hasBigDecimal);
+        templateMap.put("hasDate" , hasDate);
         templateMap.put("package" , packName);
         templateMap.put("author" , CyStrUtil.isNotBlank(authorName) ? authorName : config.getStr("author"));
         templateMap.put("date" , CyDateUtil.format(CyDateTimeUtil.now(), DatePattern.NORM_DATE_FORMATTER));
