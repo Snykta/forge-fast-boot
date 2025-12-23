@@ -25,7 +25,7 @@ public class SaTokenWebMvcConfig implements WebMvcConfigurer {
         return new SaInterceptor(handler -> {
             SaRouter
                     .match("/**")                                 // 拦截的 path 列表，可以写多个 */
-                    .notMatch("/user/doLogin")                    // 排除掉的 path 列表，可以写多个
+                    .notMatch("/sysUser/login")                    // 排除掉的 path 列表，可以写多个
                     .check(r -> StpUtil.checkLogin());        // 要执行的校验动作，可以写完整的 lambda 表达式
         });
     }

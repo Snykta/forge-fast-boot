@@ -40,7 +40,6 @@ import java.text.SimpleDateFormat;
 @EnableCaching
 @AutoConfigureBefore(RedisAutoConfiguration.class)
 @ConditionalOnClass({StringRedisTemplate.class, RedisScript.class, RedisTemplate.class})
-@PropertySource("classpath:config/application-redis.properties")
 public class RedisAutoConfig extends CachingConfigurerSupport implements DisposableBean {
 
     @Resource
@@ -84,19 +83,6 @@ public class RedisAutoConfig extends CachingConfigurerSupport implements Disposa
         redisTemplate.setHashValueSerializer(jackson2JsonRedisSerializer());
         redisTemplate.setConnectionFactory(factory);
         return redisTemplate;
-    }
-
-
-    /**
-     * lua脚本主要用于自定义限流使用
-     * @return
-     */
-    @Bean
-    public RedisScript<Long> limitRedisScript() {
-        DefaultRedisScript<Long> redisScript = new DefaultRedisScript<>();
-        redisScript.setScriptSource(new ResourceScriptSource(new ClassPathResource("config/scripts/limit.lua")));
-        redisScript.setResultType(Long.class);
-        return redisScript;
     }
 
 
