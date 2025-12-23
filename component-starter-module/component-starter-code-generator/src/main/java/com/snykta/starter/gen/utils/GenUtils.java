@@ -24,7 +24,6 @@ import java.util.zip.ZipOutputStream;
 /**
  * 代码生成器   工具类
  *
- * @author Mark sunlightcs@gmail.com
  */
 public class GenUtils {
 
@@ -33,7 +32,7 @@ public class GenUtils {
     /**
      * 生成代码
      */
-    public static void generatorCode(TableDto tableDto, List<ColumnDto> columnDtoList, ZipOutputStream zip, String packName) {
+    public static void generatorCode(TableDto tableDto, List<ColumnDto> columnDtoList, ZipOutputStream zip, String packName, String authorName) {
         //配置信息
         Props config = getConfig();
 
@@ -113,7 +112,7 @@ public class GenUtils {
         templateMap.put("columns" , tableEntity.getColumns());
         templateMap.put("hasBigDecimal" , hasBigDecimal);
         templateMap.put("package" , packName);
-        templateMap.put("author" , config.getStr("author"));
+        templateMap.put("author" , CyStrUtil.isNotBlank(authorName) ? authorName : config.getStr("author"));
         templateMap.put("date" , CyDateUtil.format(CyDateTimeUtil.now(), DatePattern.NORM_DATE_FORMATTER));
 
 

@@ -136,8 +136,9 @@
         });
         $('#startGenBtn').click(function() {
             if (checkTableNames.length > 0) {
-                layer.confirm('<input style="margin: 5px" type="text" id="packName" name="" placeholder="请输入包名" class="layui-input">', {title:'<span style="color: red">controller、service等包父路径</span>'}, function(index){
+                layer.confirm('<input style="margin: 5px" type="text" id="packName" name="" placeholder="请输入包名" class="layui-input"> <input style="margin: 5px" type="text" id="authorName" name="" placeholder="请输入作者名" class="layui-input">', {title:'<span style="color: red">controller、service等包父路径</span>'}, function(index){
                    let packNames =  $('#packName').val();
+                    let authorName =  $('#authorName').val();
                     if (packNames.length <= 0) {
                         layer.msg('请输入父包名', {icon: 2});
                     } else {
@@ -146,13 +147,14 @@
                             type: "GET",
                             data: {
                                 tables: checkTableNames.join(","),
-                                packName: packNames
+                                packName: packNames,
+                                authorName: authorName
                             },
                             success: function(response, status, xhr) {
                                 if (xhr.responseJSON !== undefined) {
                                     layer.msg(response.message, {icon: 2});
                                 } else {
-                                    let url = "/gen/code?tables=" + checkTableNames.join(",") + "&packName=" + packNames;
+                                    let url = "/gen/code?tables=" + checkTableNames.join(",") + "&packName=" + packNames + "&authorName=" + authorName;
                                     window.open(url, "_blank");
                                 }
                             },

@@ -68,7 +68,7 @@ public class GeneratorService {
      * @param tableNames
      * @return
      */
-    public byte[] generatorCode(String[] tableNames, String packName) {
+    public byte[] generatorCode(String[] tableNames, String packName, String authorName) {
         if (tableNames.length <= 0) {
             throw new ServiceException("请输入表名");
         }
@@ -87,7 +87,7 @@ public class GeneratorService {
             //查询列信息
             List<ColumnDto> columns = queryColumns(tableName);
             //生成代码
-            GenUtils.generatorCode(table, columns, zip, packName);
+            GenUtils.generatorCode(table, columns, zip, packName, authorName);
         }
         IoUtil.close(zip);
         return outputStream.toByteArray();

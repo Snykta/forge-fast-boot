@@ -49,8 +49,8 @@ public class GeneratorController extends BaseController {
      */
     @ApiOperation("生成代码压缩包")
     @GetMapping("/code")
-    public void code(@RequestParam("tables") String tables,@RequestParam("packName") String packName, HttpServletResponse response) throws Exception {
-        byte[] data = sysGeneratorService.generatorCode(CyStrUtil.splitToArray(tables, ","), packName);
+    public void code(@RequestParam("tables") String tables, @RequestParam("packName") String packName,  @RequestParam(value = "authorName", required = false) String authorName, HttpServletResponse response) throws Exception {
+        byte[] data = sysGeneratorService.generatorCode(CyStrUtil.splitToArray(tables, ","), packName, authorName);
         response.reset();
         response.setHeader("Content-Disposition", "attachment; filename=\"GenCode.zip\"");
         response.addHeader("Content-Length", "" + data.length);
