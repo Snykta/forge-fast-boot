@@ -2,7 +2,6 @@ package com.snykta.starter.security.config;
 
 
 import cn.dev33.satoken.config.SaTokenConfig;
-import cn.dev33.satoken.interceptor.SaInterceptor;
 import com.snykta.starter.tools.constant.AuthConstant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.DisposableBean;
@@ -10,22 +9,25 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Slf4j
 @PropertySource("classpath:config/application-security.properties")
 @Configuration
-public class SaTokenAutoConfig implements DisposableBean, WebMvcConfigurer {
+public class SaTokenAutoConfig implements DisposableBean {
 
     public SaTokenAutoConfig() {
         log.info("初始化[Security]模块...");
     }
 
 
+    /**
+     * Sa-token 基础默认配置，实际子模块可重写覆盖 注意 # CyTokenUtil.class 也要改
+     * @return
+     */
     @Bean
     @Primary
     public SaTokenConfig getSaTokenConfigPrimary() {
+        log.info("加载[Security]模块的基础配置...");
         SaTokenConfig config = new SaTokenConfig();
         config.setTokenName(AuthConstant.head_token_key);// token 名称（同时也是 cookie 名称）
         config.setTimeout(AuthConstant.token_timeout); // token 有效期（单位：秒），默认30天，-1代表永不过期
@@ -41,27 +43,6 @@ public class SaTokenAutoConfig implements DisposableBean, WebMvcConfigurer {
         config.setAutoRenew(AuthConstant.isAutoRenew_token); // 是否打开自动续签(默认不自动续签)
         config.setIsPrint(false); // 是否在初始化配置时打印版本字符画
         return config;
-    }
-
-
-    /**
-     * 添加自定义拦截器
-     * @param registry
-     */
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(saInterceptor()).addPathPatterns("/**");
-    }
-
-
-
-
-
-
-    public SaInterceptor saInterceptor() {
-        // 注册 Sa-Token 拦截器，打开注解式鉴权功能
-        log.info("开始注册[Security]模块的注解权限拦截器...");
-        return new SaInterceptor();
     }
 
 

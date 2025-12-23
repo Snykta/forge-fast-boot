@@ -55,6 +55,11 @@
             <artifactId>component-starter-common-tools</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.snykta.fast.boot</groupId>
+            <artifactId>component-starter-security</artifactId>
+        </dependency>
+
     </dependencies>
 
 

@@ -36,7 +36,7 @@ public class BasicToken implements Serializable {
     /**
      * 角色编码集合
      */
-    private  List<String> roleCodeList;
+    private List<String> roleCodeList;
 
 
 }
