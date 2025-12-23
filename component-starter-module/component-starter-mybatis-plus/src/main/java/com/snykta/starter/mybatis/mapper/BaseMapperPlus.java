@@ -1,12 +1,10 @@
 package com.snykta.starter.mybatis.mapper;
 
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.toolkit.Db;
-
 import java.util.Collection;
-import java.util.List;
 
 
 /**
@@ -18,15 +16,6 @@ import java.util.List;
  */
 public interface BaseMapperPlus<T> extends BaseMapper<T> {
 
-
-    /**
-     * 单表查询全部
-     */
-    default List<T> selectList() {
-        return this.selectList(new QueryWrapper<>());
-    }
-
-
     /**
      * 单表批量插入
      */
@@ -36,7 +25,7 @@ public interface BaseMapperPlus<T> extends BaseMapper<T> {
 
 
     /**
-     * 单表批量插入或更新
+     * 单表批量插入或更新(包含限制条数)
      */
     default boolean insertOrUpdateBatch(Collection<T> entityList) {
         return Db.saveOrUpdateBatch(entityList);
@@ -44,7 +33,7 @@ public interface BaseMapperPlus<T> extends BaseMapper<T> {
 
 
     /**
-     * 单表插入或更新(包含限制条数)
+     * 单表插入或更新
      */
     default boolean saveOrUpdate(T entity) {
         return Db.saveOrUpdate(entity);

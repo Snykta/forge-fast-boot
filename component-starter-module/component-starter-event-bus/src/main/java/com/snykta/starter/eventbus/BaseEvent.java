@@ -9,6 +9,7 @@ public abstract class BaseEvent<T> extends ApplicationEvent {
         super(source);
     }
 
+    @SuppressWarnings("unchecked")
     public T getSourceModel() {
         return (T) this.source;
     }
